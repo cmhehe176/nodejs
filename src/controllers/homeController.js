@@ -20,13 +20,14 @@ let postdangnhap = async(req,res)=>{
 	console.log(data)
 	if( data) {
 		if( data.mod===2){
-			return res.render('benhnhan.ejs')
+			return res.send('benh nhan')
 
 		}else if( data.mod===1){
-			return res.redirect('/alluser')
+			return res.send('bacsi')
+
 
 		}else if( data.mod===0){
-
+			return res.send('admin')
 		}
 		
 	}else{
