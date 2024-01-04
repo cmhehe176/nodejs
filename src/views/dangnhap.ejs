@@ -13,6 +13,7 @@
 	<div class="conteiner" style="margin-top: 100px;">
 		<div class="row justify-content-center">
 			<form action="/postdangnhap" method="post">
+				
 				<div class="form-group">
 				  <label for="exampleInputEmail1">Số điện thoại</label>
 				  <input type="number" class="form-control" name="phone" aria-describedby="emailHelp" placeholder="Nhập số điện thoại">
@@ -22,14 +23,31 @@
 				  <label for="exampleInputPassword1">Mật khẩu</label>
 				  <input type="password" class="form-control" name="password" placeholder="Điền mật khẩu">
 				</div>
-				
-				<button 
-				type="submit" 
-				class="btn btn-primary" 
-				style="display: block;">Đăng nhập 
-			</button>
+				<div class="form-row">
+					<div class="form-group col-md-5">
+						
+						<button 
+						type="submit" 
+						class="btn btn-primary" 
+						style="margin-top: 32px;"
+						>Đăng nhập 
+						</button>
+					</div>
+					
+					<div class="form-group col-md-7">
+					<label for="inputgender">Bạn là ?</label>
+					<select name="mod" class="form-control"
+					style="cursor: pointer;">
+						<option value = 2>Bệnh nhân</option>
+						
+						<option value = 1>Bác sĩ</option>
+						<option value = 0>Quản trị viên</option>
+					</select>
+					</div>
+				</div>
 				<a href="/dangky" > Chưa có tài khoản ?</a>
-			  </form>
+			  
+			</form>
 		</div>
 	</div>
 	<style>

@@ -18,7 +18,21 @@ let postdangnhap = async(req,res)=>{
 	console.log(req.body)
 	 let data = await userservice.dangnhapservice(req.body)
 	console.log(data)
-	 return res.send('helllo tu post dang nhap tu controller')
+	if( data) {
+		if( data.mod===2){
+			return res.render('benhnhan.ejs')
+
+		}else if( data.mod===1){
+			return res.redirect('/alluser')
+
+		}else if( data.mod===0){
+
+		}
+		
+	}else{
+
+	return res.send("Đăng nhập lại")
+	}
 }
 
 let alluser = async(req,res)=>{
@@ -60,7 +74,4 @@ module.exports = {
 	deleteuser: deleteuser,
 	dangnhap: dangnhap,
 	postdangnhap: postdangnhap,
-
-
-	
 }

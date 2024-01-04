@@ -21,16 +21,19 @@ let dangkyservice = async(data)=>{
 let dangnhapservice = async(data)=>{
 	return new Promise(async(resolve,reject)=>{
 		try {
-			let user = await db.User.findOne({
-				where:{phone: data.phone},
+			 let user = await db.User.findOne({
+				where:{phone: data.phone,roleID: data.mod},
 			})
 			if(!user){
-				resolve('Người dùng không tồn tại');
+				
+				resolve(false)
 			}else{
-				if( user.password === data.password){
-					resolve('Đăng nhập thành công');
+				if( user.password === data.password ){
+					resolve(true)
+					
 				}else{
-					resolve('Mật khẩu không chính xác');
+					
+					resolve(false)
 				}
 			}
 		}catch(e){
@@ -38,6 +41,7 @@ let dangnhapservice = async(data)=>{
 		}
 	})
 }
+
 let alluser =()=>{
 	return new Promise(async(resolve,reject)=>{
 		try{
@@ -116,7 +120,7 @@ module.exports={
 	getuserbyid: getuserbyid,
 	deleteuser: deleteuser,
 	dangnhapservice: dangnhapservice,
-
+	
 
 
 }
