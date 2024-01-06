@@ -18,7 +18,7 @@ let initWebrouter = (app)=>{
 	router.get('/edituser',homeController.edituser)
 	router.post('/updatedone',homeController.updatedone)
 	router.get('/deleteuser',homeController.deleteuser)
-	router.get('/benhnhan',homeController.postdangnhap)
+	
 
 
 

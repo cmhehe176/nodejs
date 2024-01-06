@@ -1,44 +1,34 @@
 'use strict';
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-    up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('Schedules', {
-            id: {
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
-                type: Sequelize.INTEGER
-            },
-            doctorId: {
-                allowNull: false,
-                type: Sequelize.INTEGER
-            },
-            date: {
-                type: Sequelize.STRING
-            },
-            time: {
-                type: Sequelize.STRING
-            },
-            maxBooking: {
-                type: Sequelize.STRING
-            },
-            sumBooking: {
-                type: Sequelize.STRING
-            },
-            createdAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updatedAt: {
-                allowNull: true,
-                type: Sequelize.DATE
-            },
-            deletedAt: {
-                allowNull: true,
-                type: Sequelize.DATE
-            },
-        });
-    },
-    down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('Schedules');
-    }
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Schedules', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      schedule_date: {
+        type: Sequelize.DATE
+      },
+      start_time: {
+        type: Sequelize.TIME
+      },
+      end_time: {
+        type: Sequelize.TIME
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Schedules');
+  }
 };

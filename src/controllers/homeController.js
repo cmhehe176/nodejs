@@ -16,24 +16,30 @@ let dangnhap = (req,res)=>{
 }
 let postdangnhap = async(req,res)=>{
 	console.log(req.body)
-	 let data = await userservice.dangnhapservice(req.body)
-	console.log(data)
+	 let data= await userservice.dangnhapservice(req.body)
+	 let a = req.body.mod
+	 let user = await userservice.getuserbyphone(req.body.phone)
 	if( data) {
-		if( data.mod===2){
-			return res.send('benh nhan')
+		if( a==='2'){
+			return res.render('./home/benhnhan.ejs',
+			{dataTable: user})
 
-		}else if( data.mod===1){
-			return res.send('bacsi')
+		}else if( a==='1'){
+			return res.render('./home/bacsi.ejs',
+			{dataTable: user})
 
 
-		}else if( data.mod===0){
-			return res.send('admin')
+		}else if( a==='0'){
+			return res.render('./home/admin.ejs',
+			{dataTable: user})
 		}
 		
 	}else{
 
 	return res.send("Đăng nhập lại")
 	}
+
+
 }
 
 let alluser = async(req,res)=>{
@@ -75,4 +81,8 @@ module.exports = {
 	deleteuser: deleteuser,
 	dangnhap: dangnhap,
 	postdangnhap: postdangnhap,
+
+
+
+
 }

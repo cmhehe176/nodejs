@@ -2,35 +2,22 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Patients', {
+    await queryInterface.createTable('Diseases', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      disease_name: {
         type: Sequelize.STRING
       },
-      address: {
+      symptoms: {
         type: Sequelize.STRING
       },
-      phone: {
+      treatment: {
         type: Sequelize.STRING
       },
-      email: {
-        type: Sequelize.STRING
-      },
-      gender: {
-        type: Sequelize.STRING
-      },
-      birthday: {
-        type: Sequelize.DATE
-      },
-      roleID: {
-        type: Sequelize.TINYINT(1),
-        defaultValue: 2
-    },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -42,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Patients');
+    await queryInterface.dropTable('Diseases');
   }
 };

@@ -19,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     User.associate = function(models) {
        
-        models.User.hasOne(models.Post);
-        models.User.hasOne(models.Doctor_User, { foreignKey: 'doctorId' });
+        
         models.User.hasMany(models.Patient, { foreignKey: 'doctorId' });
         models.User.hasMany(models.Schedule, { foreignKey: 'doctorId' });
         models.User.hasMany(models.Comment, { foreignKey: 'doctorId' });

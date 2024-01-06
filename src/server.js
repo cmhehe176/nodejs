@@ -13,5 +13,5 @@ initWebrouter(app);
 
 let port = process.env.PORT || 6969;
 app.listen( port ,()=> {
-	console.log('nguyen dao minh cong: '+ port)
+	console.log('Connect thành công tại PORT: '+ port)
 })

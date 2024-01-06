@@ -32,7 +32,9 @@ module.exports = {
             },
             roleID: {
                 type: Sequelize.TINYINT(1),
-                defaultValue: 2
+                defaultValue: 2,
+                primaryKey: true,
+                allowNull: false,
             },
             
             

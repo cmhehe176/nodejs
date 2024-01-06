@@ -32,8 +32,7 @@ let dangnhapservice = async(data)=>{
 					resolve(true)
 					
 				}else{
-					
-					resolve(false)
+						resolve(false)
 				}
 			}
 		}catch(e){
@@ -64,7 +63,24 @@ let getuserbyid=(userid)=>{
 			if( user){
 				resolve(user)
 			}else{
-				resolve('khong co ')
+				resolve('Nope')
+			}
+		}catch(e){
+			reject(e)
+		}
+	})
+}
+let getuserbyphone=(userphone)=>{
+	return new Promise ( async(resolve,reject)=>{
+		try {
+			let user = await db.User.findOne({
+				where:{ phone: userphone},
+				raw: true,
+			})
+			if( user){
+				resolve(user)
+			}else{
+				resolve('Nope')
 			}
 		}catch(e){
 			reject(e)
@@ -120,7 +136,7 @@ module.exports={
 	getuserbyid: getuserbyid,
 	deleteuser: deleteuser,
 	dangnhapservice: dangnhapservice,
-	
+	getuserbyphone:getuserbyphone,
 
 
 }
